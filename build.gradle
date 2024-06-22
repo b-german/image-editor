@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group = 'sfu.student'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'sfu.student.ImageEditorApplication'
+        )
+    }
+}
+
+tasks.register('fatJar', Jar) {
+    manifest.from jar.manifest
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    with jar
+}
+
+dependencies {
+    implementation 'org.openpnp:opencv:4.9.0-0'
+}
