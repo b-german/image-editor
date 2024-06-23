@@ -61,7 +61,7 @@ public class MainFrame extends JFrame {
   public MainFrame() {
     super(TITLE.getText());
     setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    setSize(1200, 800);
+    setSize(1024, 768);
 
     initImage();
     initTopBarMenu();

@@ -1,5 +1,6 @@
 package sfu.student.gui.dialog;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 import java.awt.Component;
@@ -189,14 +190,24 @@ public class DrawLineDialog extends JDialog {
       sb.append("Толщина линии должна быть не меньше 1 и не больше 50");
     }
 
-    if (!sb.isEmpty()) {
-      errorTextArea.setText(sb.toString());
+    if (isNull(start) || isNull(end) || isNull(thickness)) {
+      if (!sb.isEmpty()) {
+        errorTextArea.setText(sb.toString());
+      } else {
+        errorTextArea.setText(" ");
+      }
       confirmButton.setEnabled(false);
       return false;
-    } else {
+    }
+
+    if (sb.isEmpty()) {
       errorTextArea.setText(" ");
       confirmButton.setEnabled(true);
       return true;
+    } else {
+      errorTextArea.setText(sb.toString());
+      confirmButton.setEnabled(false);
+      return false;
     }
   }
 

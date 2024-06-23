@@ -1,11 +1,11 @@
 package sfu.student.constants;
 
 public enum UIText {
-  TITLE("Программа для просмотра изображений"),
+  TITLE("Программа для редактирования изображений"),
   MENU_FILE("Файл"),
   MENU_FILE_OPEN("Открыть"),
   MENU_FILE_TAKE_PHOTO("Сфотографировать"),
-  MENU_FILE_REPLACE_DEFAULT("Поменять фото по умолчанию"),
+  MENU_FILE_REPLACE_DEFAULT("Заменить случайным изображением"),
   MENU_CHANNEL("Канал"),
   MENU_CHANNEL_RED("Красный"),
   MENU_CHANNEL_GREEN("Зелёный"),
@@ -14,8 +14,7 @@ public enum UIText {
   MENU_EDIT("Редактировать"),
   MENU_EDIT_GAUSS("Размытие по Гауссу"),
   MENU_EDIT_TO_GRAYSCALE("В оттенках серого"),
-  MENU_EDIT_DRAW_LINE("Нарисовать линию")
-  ;
+  MENU_EDIT_DRAW_LINE("Нарисовать линию");
   private final String text;
 
   UIText(String text) {
